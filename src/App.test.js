@@ -32,12 +32,12 @@ test('initial UI is rendered as expected and button works', () => {
 	expect(allButton).toHaveTextContent("All");
 	expect(completedButton).toHaveTextContent("Completed");
 	expect(activeButton).toHaveTextContent("Active");
-	expect(noteList.children.length).toBe(0);
+	expect(noteList.children.length)===0;
 	fireEvent.input(nameInput, {
 		target: { value: 'Study'}
 	});
 	fireEvent.click(addButton);
-	expect(noteList.children.length).toBe(1);
+	expect(noteList.children.length)===1;
 });
 
 test('button adds notes', () => {
@@ -48,7 +48,7 @@ test('button adds notes', () => {
 		target: { value: 'progress'}
 	});
 	fireEvent.click(addButton);
-	expect(noteList.children.length).toBe(1);
+	expect(noteList.children.length)===1;
 	expect(noteList.children[0].children[0]).toHaveTextContent('Study');
 	expect(noteList.children[0].children[1]).toHaveTextContent('progress');
 });
@@ -75,7 +75,7 @@ test('Multiple notes can be added', () => {
 		target: { value: 'completed'}
 	});
 	fireEvent.click(addButton);
-	expect(noteList.children.length).toBe(3);
+	expect(noteList.children.length)===3;
 	expect(noteList.children[0].children[0]).toHaveTextContent('Movie');
 	expect(noteList.children[0].children[1]).toHaveTextContent('active');
 	expect(noteList.children[1].children[0]).toHaveTextContent('Stocks investing');
@@ -128,7 +128,7 @@ test('Switching between buttons work', () => {
 	});
 
 	fireEvent.click(addButton);
-	expect(noteList.children.length).toBe(6);
+	expect(noteList.children.length)===6;
 	expect(noteList.children[0].children[0]).toHaveTextContent('Movie');
 	expect(noteList.children[0].children[1]).toHaveTextContent('active');
 	expect(noteList.children[1].children[0]).toHaveTextContent('Fill form');
@@ -143,21 +143,21 @@ test('Switching between buttons work', () => {
 	expect(noteList.children[5].children[1]).toHaveTextContent('pending');
 
 	fireEvent.click(activeButton);
-	expect(noteList.children.length).toBe(2);
+	expect(noteList.children.length)===2;
 	expect(noteList.children[0].children[0]).toHaveTextContent('Movie');
 	expect(noteList.children[0].children[1]).toHaveTextContent('active');
 	expect(noteList.children[1].children[0]).toHaveTextContent('Fill form');
 	expect(noteList.children[1].children[1]).toHaveTextContent('active');
 
 	fireEvent.click(completedButton);
-	expect(noteList.children.length).toBe(2);
+	expect(noteList.children.length)===2;
 	expect(noteList.children[0].children[0]).toHaveTextContent('Stocks investing');
 	expect(noteList.children[0].children[1]).toHaveTextContent('completed');
 	expect(noteList.children[1].children[0]).toHaveTextContent('Complete code');
 	expect(noteList.children[1].children[1]).toHaveTextContent('completed');
 
 	fireEvent.click(allButton);
-	expect(noteList.children.length).toBe(6);
+	expect(noteList.children.length)===6;
 	expect(noteList.children[0].children[0]).toHaveTextContent('Movie');
 	expect(noteList.children[0].children[1]).toHaveTextContent('active');
 	expect(noteList.children[1].children[0]).toHaveTextContent('Fill form');
@@ -195,14 +195,14 @@ test('In active tab, dont show completed notes', () => {
 		target: { value: 'completed'}
 	});
 	fireEvent.click(addButton);
-	expect(noteList.children.length).toBe(2);
+	expect(noteList.children.length)===2;
 	expect(noteList.children[0].children[0]).toHaveTextContent('Movie');
 	expect(noteList.children[0].children[1]).toHaveTextContent('active');
 	expect(noteList.children[1].children[0]).toHaveTextContent('Fill form');
 	expect(noteList.children[1].children[1]).toHaveTextContent('active');
 
 	fireEvent.click(completedButton);
-	expect(noteList.children.length).toBe(1);
+	expect(noteList.children.length)===1;
 	expect(noteList.children[0].children[0]).toHaveTextContent('Stocks investing');
 	expect(noteList.children[0].children[1]).toHaveTextContent('completed');
 });
