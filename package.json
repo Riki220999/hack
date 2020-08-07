@@ -17,6 +17,8 @@
     "prestart": "npm install",
     "pretest": "npm install",
     "start": "HOST=0.0.0.0 PORT=8000 ./node_modules/.bin/react-scripts start",
+		"dev": "react-scripts start",
+		"dev:test": "./node_modules/.bin/react-scripts test --verbose --env=jsdom --testResultsProcessor ./node_modules/jest-junit",
     "test": "rm -rf ./junit.xml && ./node_modules/.bin/react-scripts test --verbose --env=jsdom --testResultsProcessor ./node_modules/jest-junit"
   },
   "devDependencies": {

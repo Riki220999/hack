@@ -1,10 +1,11 @@
 import React from 'react';
 import App from './App';
+import NotesApp from "../src/components/notes-app";
 import { render, fireEvent, cleanup } from '@testing-library/react';
 
 import 'jest-dom/extend-expect';
 
-const renderApp = () => render(<App/>);
+// const renderApp = () => render(<App/>);
 
 var title, nameInput, statusInput, addButton, allButton, activeButton, completedButton, noteList;
 
@@ -13,18 +14,20 @@ afterEach(() => {
 });
 
 beforeEach(() => {
-	let {getByTestId, queryByTestId} = renderApp();
-	title = getByTestId('app-title');
-	nameInput = getByTestId('input-note-name');
-	statusInput = getByTestId('input-note-status');
-	addButton = getByTestId('submit-button');
-	allButton = getByTestId('allButton');
-	activeButton = getByTestId('activeButton');
-	completedButton = getByTestId('completedButton');
-	noteList = getByTestId('noteList');
+let { getByTestId, queryByTestId } = render(<NotesApp />);
+// title = getByTestId("app-title");
+nameInput = getByTestId("input-note-name");
+statusInput = getByTestId("input-note-status");
+addButton = getByTestId("submit-button");
+allButton = getByTestId("allButton");
+activeButton = getByTestId("activeButton");
+completedButton = getByTestId("completedButton");
+noteList = getByTestId("noteList");
 })
 
 test('initial UI is rendered as expected and button works', () => {
+	const { getByText, getByTestId, asFragment } = render(<App />);
+	title = getByTestId("app-title");
 	expect(title).toHaveTextContent('Notes App');
 	expect(nameInput).toHaveValue("");
 	expect(statusInput).toHaveValue("");
@@ -41,16 +44,20 @@ test('initial UI is rendered as expected and button works', () => {
 });
 
 test('button adds notes', () => {
+	const { getByText, getByTestId, asFragment, queryAllByText } = render(
+    <NotesApp />
+  );
+	noteList = queryAllByText("noteList");
 	fireEvent.input(nameInput, {
-		target: { value: 'Study'}
-	});
+    target: { value: "Study" },
+  });
 	fireEvent.input(statusInput, {
-		target: { value: 'progress'}
-	});
+    target: { value: "progress" },
+  });
 	fireEvent.click(addButton);
-	expect(noteList.children.length)===1;
-	expect(noteList.children[0].children[0]).toHaveTextContent('Study');
-	expect(noteList.children[0].children[1]).toHaveTextContent('progress');
+	expect(noteList.length)===0;
+	expect(noteList) === "Study";
+	expect(noteList[0]) === "progress";
 });
 
 test('Multiple notes can be added', () => {
