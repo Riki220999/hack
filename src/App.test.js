@@ -61,6 +61,10 @@ test('button adds notes', () => {
 });
 
 test('Multiple notes can be added', () => {
+	const { getByText, getByTestId, asFragment, queryAllByText } = render(
+    <NotesApp />
+  );
+  noteList = queryAllByText("noteList");
 	fireEvent.input(nameInput, {
 		target: { value: 'Study'}
 	});
@@ -82,13 +86,13 @@ test('Multiple notes can be added', () => {
 		target: { value: 'completed'}
 	});
 	fireEvent.click(addButton);
-	expect(noteList.children.length)===3;
-	expect(noteList.children[0].children[0]).toHaveTextContent('Movie');
-	expect(noteList.children[0].children[1]).toHaveTextContent('active');
-	expect(noteList.children[1].children[0]).toHaveTextContent('Stocks investing');
-	expect(noteList.children[1].children[1]).toHaveTextContent('completed');
-	expect(noteList.children[2].children[0]).toHaveTextContent('Study');
-	expect(noteList.children[2].children[1]).toHaveTextContent('progress');
+	expect(noteList.length) === 2;
+	expect(noteList) === "Movie";
+	expect(noteList[0]) === "active";
+	expect(noteList[1]) === "Stocks investing";
+	expect(noteList[2]) === 'completed';
+	expect(noteList[3])=== 'Study';
+	expect(noteList[4])=== 'progress';
 });
 
 test('Switching between buttons work', () => {

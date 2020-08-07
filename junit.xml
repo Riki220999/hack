@@ -1,17 +1,19 @@
-<testsuites name="jest tests" tests="5" failures="3" time="6.134">
-  <testsuite name="undefined" errors="0" failures="3" skipped="0" timestamp="2020-08-07T14:37:31" time="6.134" tests="5">
-    <testcase classname=" initial UI is rendered as expected and button works" name=" initial UI is rendered as expected and button works" time="0.048">
+<testsuites name="jest tests" tests="5" failures="2" time="2.885">
+  <testsuite name="undefined" errors="0" failures="2" skipped="0" timestamp="2020-08-07T14:56:25" time="2.885" tests="5">
+    <testcase classname=" initial UI is rendered as expected and button works" name=" initial UI is rendered as expected and button works" time="0.045">
     </testcase>
-    <testcase classname=" button adds notes" name=" button adds notes" time="0.013">
+    <testcase classname=" button adds notes" name=" button adds notes" time="0.011">
     </testcase>
-    <testcase classname=" Multiple notes can be added" name=" Multiple notes can be added" time="0.011">
+    <testcase classname=" Multiple notes can be added" name=" Multiple notes can be added" time="0.015">
+    </testcase>
+    <testcase classname=" Switching between buttons work" name=" Switching between buttons work" time="0.012">
       <failure>Error: expect(element).toHaveTextContent()
 
 Expected element to have text content:
   Movie
 Received:
 
-    at Object.&lt;anonymous&gt; (C:\Users\Administrator\Documents\GitHub\hack\src\App.test.js:86:43)
+    at Object.&lt;anonymous&gt; (C:\Users\Administrator\Documents\GitHub\hack\src\App.test.js:143:43)
     at Object.asyncFn (C:\Users\Administrator\Documents\GitHub\hack\node_modules\jest-jasmine2\build\jasmine-async.js:68:30)
     at C:\Users\Administrator\Documents\GitHub\hack\node_modules\jest-jasmine2\build\queueRunner.js:38:12
     at new Promise (&lt;anonymous&gt;)
@@ -19,29 +21,14 @@ Received:
     at C:\Users\Administrator\Documents\GitHub\hack\node_modules\p-map\index.js:46:16
     at processTicksAndRejections (internal/process/task_queues.js:97:5)</failure>
     </testcase>
-    <testcase classname=" Switching between buttons work" name=" Switching between buttons work" time="0.011">
+    <testcase classname=" In active tab, dont show completed notes" name=" In active tab, dont show completed notes" time="0.005">
       <failure>Error: expect(element).toHaveTextContent()
 
 Expected element to have text content:
   Movie
 Received:
 
-    at Object.&lt;anonymous&gt; (C:\Users\Administrator\Documents\GitHub\hack\src\App.test.js:139:43)
-    at Object.asyncFn (C:\Users\Administrator\Documents\GitHub\hack\node_modules\jest-jasmine2\build\jasmine-async.js:68:30)
-    at C:\Users\Administrator\Documents\GitHub\hack\node_modules\jest-jasmine2\build\queueRunner.js:38:12
-    at new Promise (&lt;anonymous&gt;)
-    at mapper (C:\Users\Administrator\Documents\GitHub\hack\node_modules\jest-jasmine2\build\queueRunner.js:31:21)
-    at C:\Users\Administrator\Documents\GitHub\hack\node_modules\p-map\index.js:46:16
-    at processTicksAndRejections (internal/process/task_queues.js:97:5)</failure>
-    </testcase>
-    <testcase classname=" In active tab, dont show completed notes" name=" In active tab, dont show completed notes" time="0.007">
-      <failure>Error: expect(element).toHaveTextContent()
-
-Expected element to have text content:
-  Movie
-Received:
-
-    at Object.&lt;anonymous&gt; (C:\Users\Administrator\Documents\GitHub\hack\src\App.test.js:206:43)
+    at Object.&lt;anonymous&gt; (C:\Users\Administrator\Documents\GitHub\hack\src\App.test.js:210:43)
     at Object.asyncFn (C:\Users\Administrator\Documents\GitHub\hack\node_modules\jest-jasmine2\build\jasmine-async.js:68:30)
     at C:\Users\Administrator\Documents\GitHub\hack\node_modules\jest-jasmine2\build\queueRunner.js:38:12
     at new Promise (&lt;anonymous&gt;)
